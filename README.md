@@ -47,15 +47,16 @@
 ![image](https://user-images.githubusercontent.com/61446346/206153621-7bedc111-ec8c-4209-80d1-177e95c6e122.png)
 ```
 8. 라이더가 해당 요리를 Pick한 후, 앱을 통해 통보한다.
-10. 주문상태가 바뀔 때 마다 카톡으로 알림을 보낸다
-11. 고객이 요리를 배달 받으면 배송확인 버튼을 탭하여, 모든 거래가 완료된다
+10. 고객이 요리를 배달 받으면 배송확인 버튼을 탭하여, 모든 거래가 완료된다
 ```
 
-## 체크포인트
+## L3 평가 체크포인트
+## ■  대상  마이크로서비스  : 고객, 상점주, 라이더
+## ■  Microservice Implementation
 ### 1. Saga (Pub / Sub)
 
-  #### 구현 : Order커맨드로 주문시 주문정보는 kafka에 저장되며 store에서는 해당 오더정보를 확인할 수 있다.
-  - ![image](https://user-images.githubusercontent.com/61446346/205812757-49e1c8be-4159-4254-b2a5-e3b7eadb3c70.png)
+  #### 구현 : Pub / Sub 구현 코드
+  - ![image](https://user-images.githubusercontent.com/2777247/219011956-605a74c3-5923-4cb7-957e-9b208696b7dd.png)
   
   #### 실행
   - Order커맨드 실행
@@ -72,7 +73,8 @@
 
   - 구현 : 오더주문시 orderView 정보를 생성한고, 각 단계전진시 orderStatus상태를 현행화 관리한다.
   - ![image](https://user-images.githubusercontent.com/61446346/205814117-7aa5d785-2d93-4d1a-90bd-8eb501648efe.png)
-
+  -  CQRS 구현된 코드
+  -  ![image](https://user-images.githubusercontent.com/2777247/219012947-a64463d1-daeb-43a2-9fe2-07f8412122be.png)
   - 확인 : 오더주문시 생성된 데이터 
   - ![image](https://user-images.githubusercontent.com/61446346/205814569-86d3e309-477c-40b1-8c9e-665be1c90f42.png)
 
@@ -99,8 +101,9 @@
   - 오더정보 확인 : orderId = 5
   - ![image](https://user-images.githubusercontent.com/61446346/205848158-51867ac1-c3d2-4edf-8b55-ca709a3faa43.png)
 
-  
-### 4. Request / Response
+## ■  Microservice Orchestration
+
+### 4. Deploy to EKS Cluster
 
   #### 구현 : 주문정보 조회시 http GET 구현
   - ![image](https://user-images.githubusercontent.com/61446346/205844002-80b55f91-6d3c-48f7-9e2e-38e48e8d2f5c.png)
@@ -109,7 +112,7 @@
   -   ![image](https://user-images.githubusercontent.com/61446346/205843890-597798c8-1605-4fd9-a70e-0763b2afa0d6.png)
 
 
-### 5. Circuit Breaker
+### 5.Gateway & Service Router 설치
  #### 설정 : 주문 서비스의 application.xml에 hystrix enabled = true와 임계치를 설정한다.
  ![image](https://user-images.githubusercontent.com/61446346/206486704-1e3eadd4-404e-4b41-8b51-5858d285f386.png)
  
@@ -120,7 +123,7 @@
  ![image](https://user-images.githubusercontent.com/61446346/206488225-c5b3379b-52a8-43ab-8a01-43656645c0f3.png)
 
 
-### 6. Gateway / Ingress
+### 6.Autoscale (HPA)
  #### 구현 
   - ![image](https://user-images.githubusercontent.com/61446346/205819140-dc60d97e-0355-4d72-96af-8fe8560089df.png)
 
