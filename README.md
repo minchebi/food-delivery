@@ -105,28 +105,17 @@
 
 ### 4. Deploy to EKS Cluster
 
-  #### 구현 : 주문정보 조회시 http GET 구현
-  - ![image](https://user-images.githubusercontent.com/61446346/205844002-80b55f91-6d3c-48f7-9e2e-38e48e8d2f5c.png)
-
-  #### 실행 : 
-  -   ![image](https://user-images.githubusercontent.com/61446346/205843890-597798c8-1605-4fd9-a70e-0763b2afa0d6.png)
-
+  #### 서비스 목록
+  - ![image](https://user-images.githubusercontent.com/2777247/219239201-9cf4f7cd-d2fd-40ae-b247-2dc423118de8.png)
 
 ### 5.Gateway & Service Router 설치
- #### 설정 : 주문 서비스의 application.xml에 hystrix enabled = true와 임계치를 설정한다.
- ![image](https://user-images.githubusercontent.com/61446346/206486704-1e3eadd4-404e-4b41-8b51-5858d285f386.png)
+ #### 서비스 목록 확인
+  - ![image](https://user-images.githubusercontent.com/2777247/219247998-a0a12d4c-2948-4a82-af1f-d383b0d84e9b.png)
  
- #### 구현 : 오더주문시 지연처리 되도록 설정한다.
- ![image](https://user-images.githubusercontent.com/61446346/206487332-54119229-9539-4a6b-998f-5cd8f980bf86.png)
-
- #### 확인 : 서비스 실행시, 장시간 처리되지 않고 임계치 도달시 오류처리되는것을 확인한다
- ![image](https://user-images.githubusercontent.com/61446346/206488225-c5b3379b-52a8-43ab-8a01-43656645c0f3.png)
-
-
 ### 6.Autoscale (HPA)
- #### 구현 
-  - ![image](https://user-images.githubusercontent.com/61446346/205819140-dc60d97e-0355-4d72-96af-8fe8560089df.png)
+ #### autoscale 설정 확인 
+  - ![image](https://user-images.githubusercontent.com/2777247/219248765-4580e4eb-fd56-4d7c-bee6-6eab8bde7d8b.png)
 
- #### 실행
-  - ![image](https://user-images.githubusercontent.com/61446346/205817463-37fa0a22-7f8b-4e2d-8be3-aa76d4aabb92.png)
+ #### Pod 증가 확인
+  - ![image](https://user-images.githubusercontent.com/2777247/219248837-4557047c-57bb-46ae-b52f-ff08c32f4e20.png)
 
