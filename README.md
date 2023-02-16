@@ -105,17 +105,20 @@
 
 ### 4. Deploy to EKS Cluster
 
-  #### 서비스 목록
-  - ![image](https://user-images.githubusercontent.com/2777247/219239201-9cf4f7cd-d2fd-40ae-b247-2dc423118de8.png)
+  #### pod 목록
+  - ![image](https://user-images.githubusercontent.com/119826162/219263739-408af8bf-b682-40df-9e1f-50badaabfd40.png)
 
 ### 5.Gateway & Service Router 설치
- #### 서비스 목록 확인
-  - ![image](https://user-images.githubusercontent.com/2777247/219247998-a0a12d4c-2948-4a82-af1f-d383b0d84e9b.png)
+ #### 서비스 목록
+  - ![image](https://user-images.githubusercontent.com/119826162/219263853-63da518d-9ba9-494d-8b3b-40c06f36ea46.png)
  
 ### 6.Autoscale (HPA)
- #### autoscale 설정 확인 
-  - ![image](https://user-images.githubusercontent.com/2777247/219248765-4580e4eb-fd56-4d7c-bee6-6eab8bde7d8b.png)
+
+ #### HPA 설정 확인
+  - ![image](https://user-images.githubusercontent.com/119826162/219263924-474ad00d-c0d0-4e8b-9d04-4ed472df087e.png)
 
  #### Pod 증가 확인
-  - ![image](https://user-images.githubusercontent.com/2777247/219248837-4557047c-57bb-46ae-b52f-ff08c32f4e20.png)
+  - ![image](https://user-images.githubusercontent.com/119826162/219264328-8b4a5154-84e3-4490-8314-bf99ff6acb4f.png)
+  - ![image](https://user-images.githubusercontent.com/119826162/219264394-3d041277-e07c-4e14-9ecd-46a55b19f665.png)
+
 
