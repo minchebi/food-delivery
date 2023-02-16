@@ -51,7 +51,7 @@
 ```
 
 ## L3 평가 체크포인트
-## ■  대상  마이크로서비스  : 고객, 상점주, 라이더
+## ■  대상  마이크로서비스  : 점주, 고객, 라이더
 ## ■  Microservice Implementation
 ### 1. Saga (Pub / Sub)
 
@@ -80,7 +80,7 @@
 
 ### 3. Compensation / Correlation
 
-  #### 구현 : 오더주문커맨드 실행시 오더정보 kafka에 적재, 오더캔슬커맨드 실행시 오더정보를 삭제한다.
+  #### 구현 : order 주문 실행시 order 정보 kafka에 올림, order cancel 실행시 order 정보를 삭제한다.
   - 오더주문하기
   - ![image](https://user-images.githubusercontent.com/61446346/205846913-33451e38-0195-4ba1-a04e-4199dd09fd93.png)
 
