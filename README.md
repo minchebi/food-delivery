@@ -30,18 +30,18 @@
 ### 시나리오 적용
 ![image](https://user-images.githubusercontent.com/61446346/206149719-cb7a2d68-5f6d-478e-995e-717b95c769c9.png)
 ```
-1. 고객이 메뉴를 선택하여 주문한다. (ok)
-2. 고객이 선택한 메뉴에 대해 결제한다.(ok)
-6. 고객은 아직 요리가 시작되지 않은 주문은 취소할 수 있다(ok)
-9. 고객이 주문상태를 중간중간 조회한다(ok)
+1. 고객이 메뉴를 선택하여 주문한다. (예)
+2. 고객이 선택한 메뉴에 대해 결제한다.(예)
+6. 고객은 아직 요리가 시작되지 않은 주문은 취소할 수 있다(예)
+9. 고객이 주문상태를 중간중간 조회한다(예)
 ```
 
 ![image](https://user-images.githubusercontent.com/61446346/206151197-7b8c9b4e-0b3f-4f5b-b4e2-f07e6066ab06.png)
 ```
-3. 주문이 되면 주문 내역이 입점상점주인에게 주문정보가 전달된다 (ok)
-4. 상점주는 주문을 수락하거나 거절할 수 있다 (ok)
-5. 상점주는 요리시작때와 완료 시점에 시스템에 상태를 입력한다 (ok)
-7. 요리가 완료되면 고객의 지역 인근의 라이더들에 의해 배송건 조회가 가능하다 (ok)
+3. 주문이 되면 주문 내역이 입점상점주인에게 주문정보가 전달된다 (예)
+4. 상점주는 주문을 수락하거나 거절할 수 있다 (예)
+5. 상점주는 요리시작때와 완료 시점에 시스템에 상태를 입력한다 (예)
+7. 요리가 완료되면 고객의 지역 인근의 라이더들에 의해 배송건 조회가 가능하다 (예)
 ```
 
 ![image](https://user-images.githubusercontent.com/61446346/206153621-7bedc111-ec8c-4209-80d1-177e95c6e122.png)
@@ -55,44 +55,44 @@
 ## ■  Microservice Implementation
 ### 1. Saga (Pub / Sub)
 
-  #### 구현 : Pub / Sub 구현 코드
+  #### 구현 : Pub / Sub 구현 코드 확인하기
   - ![image](https://user-images.githubusercontent.com/2777247/219011956-605a74c3-5923-4cb7-957e-9b208696b7dd.png)
   
-  #### 실행
+  #### 실행하기
   - Order커맨드 실행
   - ![image](https://user-images.githubusercontent.com/61446346/205813102-0f9f9a12-7f77-495c-a055-af23e0da81e8.png)
   - Store에서 오더정보 확인
   - ![image](https://user-images.githubusercontent.com/61446346/205835532-0b51f886-871e-4151-afcc-720e605cf599.png)
 
 
-  #### kafka 확인
+  #### kafka 확인하기
   - ![image](https://user-images.githubusercontent.com/61446346/205813194-69878c3d-f958-4399-ae41-6200670551c3.png)
 
 
-### 2. CQRS
+### 2. CQRS 확인하기
 
-  - 구현 : 오더주문시 orderView 정보를 생성한고, 각 단계전진시 orderStatus상태를 현행화 관리한다.
+  - 구현 : 오더주문시 orderView 정보를 생성, 각 단계 진행시 orderStatus상태를 현행화 관리한다.
   - ![image](https://user-images.githubusercontent.com/61446346/205814117-7aa5d785-2d93-4d1a-90bd-8eb501648efe.png)
-  -  CQRS 구현된 코드
+  -  CQRS 구현된 코드 확인하기
   -  ![image](https://user-images.githubusercontent.com/2777247/219012947-a64463d1-daeb-43a2-9fe2-07f8412122be.png)
-  - 확인 : 오더주문시 생성된 데이터 
+  - 확인 : 오더주문시 생성된 데이터 확인하기
   - ![image](https://user-images.githubusercontent.com/61446346/205814569-86d3e309-477c-40b1-8c9e-665be1c90f42.png)
 
 ### 3. Compensation / Correlation
 
   #### 구현 : 오더주문커맨드 실행시 오더정보 kafka에 적재, 오더캔슬커맨드 실행시 오더정보를 삭제한다.
-  - 오더주문 
+  - 오더주문하기
   - ![image](https://user-images.githubusercontent.com/61446346/205846913-33451e38-0195-4ba1-a04e-4199dd09fd93.png)
 
-  - 오더취소
+  - 오더취소하기
   - ![image](https://user-images.githubusercontent.com/61446346/205847021-47ff372f-da6d-409c-9ec3-d19fe2859461.png)
 
   #### 실행 : 
-  - 오더주문
+  - 오더주문하기
   - ![image](https://user-images.githubusercontent.com/61446346/205847148-833f5e98-7df1-4639-b246-6c8c3b2dd445.png)
 
   #### kafka 확인 : 
-  - 오더주문
+  - 오더주문하기
   - ![image](https://user-images.githubusercontent.com/61446346/205847939-52f2d793-e957-4a17-883f-b6c008893146.png)
 
   - 오더취소
